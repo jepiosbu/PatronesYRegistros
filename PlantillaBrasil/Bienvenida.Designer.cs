@@ -52,6 +52,7 @@ namespace PlantillaBrasil
             this.Name = "Bienvenida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenida";
+            this.Load += new System.EventHandler(this.Bienvenida_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -25,7 +25,6 @@ namespace PlantillaBrasil.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int RamdonVideo {
             get {
                 return ((int)(this["RamdonVideo"]));

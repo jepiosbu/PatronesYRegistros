@@ -136,7 +136,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\videoplayback.mp4" />
+    <None Include="Resources\Kimetsu.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Solo.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tokyo.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,9 +63,29 @@ namespace PlantillaBrasil.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
-        public static byte[] videoplayback {
+        public static byte[] Kimetsu {
             get {
-                object obj = ResourceManager.GetObject("videoplayback", resourceCulture);
+                object obj = ResourceManager.GetObject("Kimetsu", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        public static byte[] Solo {
+            get {
+                object obj = ResourceManager.GetObject("Solo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        public static byte[] Tokyo {
+            get {
+                object obj = ResourceManager.GetObject("Tokyo", resourceCulture);
                 return ((byte[])(obj));
             }
         }

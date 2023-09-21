@@ -10,7 +10,9 @@ using System.Windows.Forms;
 
 namespace PlantillaBrasil
 {
-    public partial class Bienvenida : Form
+
+    
+    public partial class Bienvenida : Form 
     {
         public Bienvenida()
         {
@@ -18,6 +20,11 @@ namespace PlantillaBrasil
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void Bienvenida_Load(object sender, EventArgs e)
         {
 
         }

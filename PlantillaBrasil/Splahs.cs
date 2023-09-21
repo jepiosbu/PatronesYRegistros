@@ -14,8 +14,9 @@ namespace PlantillaBrasil
 {
     public partial class Splahs : Form
     {
-        int con;
         string[] vectorRutasVideo = new string[3];
+        int con;
+        int value;
         public Splahs()
         {
             InitializeComponent();
@@ -23,25 +24,34 @@ namespace PlantillaBrasil
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            vectorRutasVideo[0] = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Kimetsu.mp4");
+            File.WriteAllBytes(vectorRutasVideo[0], Properties.Resources.Kimetsu);
+            vectorRutasVideo[1] = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Solo.mp4");
+            File.WriteAllBytes(vectorRutasVideo[1], Properties.Resources.Solo);
+            vectorRutasVideo[2] = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Tokyo.mp4");
+            File.WriteAllBytes(vectorRutasVideo[2], Properties.Resources.Tokyo);
+
             this.Size = SystemInformation.PrimaryMonitorSize;
             this.StartPosition = FormStartPosition.CenterScreen;
-            vectorRutasVideo[0] = @"C:\Users\ender\Downloads\videoplayback.mp4";
-            vectorRutasVideo[1] = @"C:\Users\ender\Downloads\videoplayKimetsu.mp4";
-            vectorRutasVideo[2] = @"C:\Users\ender\Downloads\videoplayGojoSatoru.mp4";
-            con = Properties.Settings.Default.RamdonVideo;
-            
 
-
-}
+        }
         private void Reproductor_Enter(object sender, EventArgs e)
         {
-            string mp4Path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "videoplayback.mp4");
-
-            if (!File.Exists(mp4Path))
+            con = Properties.Settings.Default.RamdonVideo;
+            Random random = new Random(); 
+            value= random.Next(0, 3);
+            while (con == value)
             {
-                File.WriteAllBytes(mp4Path, Properties.Resources.videoplayback);
+                value = random.Next(0, 3);
+                label1.Text = con.ToString();
             }
-            Reproductor.URL = mp4Path;
+            if (con != value)
+            {
+                label1.Text = con.ToString();
+            }
+            
+            Reproductor.URL = vectorRutasVideo[value]; 
             Reproductor.Ctlcontrols.play();
             TimeOpen.Enabled = true;
             Reproductor.Ctlenabled = false;
@@ -59,17 +69,14 @@ namespace PlantillaBrasil
 
         private void TimeOpen_Tick(object sender, EventArgs e)
         {
+            Reproductor.Ctlcontrols.stop();
+            Properties.Settings.Default.RamdonVideo = value;
+            Properties.Settings.Default.Save();
             Bienvenida form2 = new Bienvenida();
             TimeOpen.Enabled = false;
             this.Hide();
             form2.Show();
-            
-            
         }
 
-        private void Splahs_FormClosed(object sender, FormClosedEventArgs e)
-        {
-       
-        }
     }
 }
